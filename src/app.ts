@@ -3,7 +3,7 @@ import express = require('express');
 const app: express.Application = express();
 
 app.get('/', function (req, res) {
-    res.send('Hello World!');
+    res.send('CV Mock status OK');
 });
 
 app.listen(3000, function () {
