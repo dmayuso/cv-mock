@@ -1,0 +1,5 @@
+{
+  "method": "GET",
+  "url": "demo/one",
+  "delay": 3000
+}
