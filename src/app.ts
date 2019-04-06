@@ -10,13 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const routesService = new RoutesService();
-const getUrl = routesService.getRoute();
-console.log('URL -> ' + getUrl);
 
-app.get('/' + getUrl, function (req, res) {
-    const routes = routesService.getResponse();
-    console.log(routes);
-    res.json(routes);
+routesService.getControllersInfo().forEach(function(controllerInfo) {
+    app.get('/' + controllerInfo.service.url, function (req, res) {
+        const response = controllerInfo.response;
+        console.log(response);
+        res.json(response);
+    });
 });
 
 app.get('/', function (req, res) {
