@@ -1,5 +1,5 @@
 export interface IService {
-    method: string;
+    method: 'get' | 'post' | 'put' | 'delete';
     url: string;
     delay?: number;
 }

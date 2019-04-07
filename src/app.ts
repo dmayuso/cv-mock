@@ -12,9 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const routesService = new RoutesService();
 
 routesService.getControllersInfo().forEach(function(controllerInfo) {
-    app.get('/' + controllerInfo.service.url, function (req, res) {
+    app[controllerInfo.service.method]('/' + controllerInfo.service.url, function (req, res) {
         const response = controllerInfo.response;
-        console.log(response);
         res.json(response);
     });
 });
