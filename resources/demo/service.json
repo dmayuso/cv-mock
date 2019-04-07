@@ -1,5 +1,6 @@
 {
-  "method": "GET",
+  "method": "get",
   "url": "demo/one",
+  "httpStatus": 201,
   "delay": 3000
 }
