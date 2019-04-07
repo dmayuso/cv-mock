@@ -14,6 +14,7 @@ const routesService = new RoutesService();
 routesService.getControllersInfo().forEach(function(controllerInfo) {
     app[controllerInfo.service.method]('/' + controllerInfo.service.url, function (req, res) {
         const response = controllerInfo.response;
+        res.status(controllerInfo.service.httpStatus);
         res.json(response);
     });
 });
