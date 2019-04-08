@@ -1,6 +1,8 @@
 import express = require('express');
-
 import { RoutesService } from './services/routes-service';
+
+const indexRouter = require("./routes/index");
+const apiRouter = require("./routes/api/index");
 
 
 const app: express.Application = express();
@@ -18,9 +20,8 @@ routesService.getControllersInfo().forEach(function(controllerInfo) {
     });
 });
 
-app.get('/', function (req, res) {
-    res.send("Mock CM status OK");
-});
+app.use("/", indexRouter);
+app.use("/api", apiRouter);
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
