@@ -1,13 +1,12 @@
 import express = require('express');
-const bodyParser = require("body-parser");
 
 import { RoutesService } from './services/routes-service';
 
 
 const app: express.Application = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const routesService = new RoutesService();
 
