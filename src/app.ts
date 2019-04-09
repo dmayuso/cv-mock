@@ -1,13 +1,14 @@
 import express = require('express');
-const bodyParser = require("body-parser");
-
 import { RoutesService } from './services/routes-service';
+
+const indexRouter = require("./routes/index");
+const apiRouter = require("./routes/api/index");
 
 
 const app: express.Application = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const routesService = new RoutesService();
 
@@ -19,9 +20,8 @@ routesService.getControllersInfo().forEach(function(controllerInfo) {
     });
 });
 
-app.get('/', function (req, res) {
-    res.send("Mock CM status OK");
-});
+app.use("/", indexRouter);
+app.use("/api", apiRouter);
 
 app.listen(3000, function () {
     console.log('Example app listening on port 3000!');
