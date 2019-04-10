@@ -1,5 +1,7 @@
 {
   "name": "acme",
+  "surname": "r[string]",
   "age": 34,
+  "children": "r[number]i[1-5]",
   "active": true
 }

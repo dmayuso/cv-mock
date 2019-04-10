@@ -1,5 +1,5 @@
-import {IService} from "../interfaces/IService";
-import {IControllerInfo} from "../interfaces/IControllerInfo";
+import { IService } from "../interfaces/IService";
+import { IControllerInfo } from "../interfaces/IControllerInfo";
 
 const fs = require("fs");
 const RESOURCES_PATH = './resources/';
