@@ -1,4 +1,4 @@
-import {RoutesService} from "../services/routes-service";
+import { RoutesService } from "../services/routes-service";
 
 const express = require('express');
 const router = express.Router();
@@ -7,7 +7,7 @@ import { Request, Response } from "express";
 const routesService = new RoutesService();
 
 router.get('/', function (req: Request, res: Response) {
-    res.status(200).send("Mock CM status OK");
+    res.status(200).send("Mock CV status OK");
 });
 
 routesService.getControllersInfo().forEach(function(controllerInfo) {
