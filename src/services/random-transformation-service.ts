@@ -11,6 +11,7 @@ export class RandomTransformationService {
         this.transform('r[string]'); // TODO remove example
         this.transform('r[number]');
         this.transform('r[boolean]');
+        this.transform('this is a mixed example, r[string] is the random string');
     }
 
     transform(element: string): any {
@@ -22,8 +23,9 @@ export class RandomTransformationService {
             const command = element.charAt(element.indexOf(bracketMatch[0]) - 1);
             const value = bracketMatch[1];
             console.log('command -> ' + command + ', value ->' + value);
-
-            element = this.createRandomElement(value);
+            element = element.slice(0, element.indexOf(bracketMatch[0]) - 1) +
+                element.slice(element.indexOf(bracketMatch[0]), element.length);
+            element = element.replace(bracketMatch[0], this.createRandomElement(value));
         }
         console.log('random -> ' + element);
         return element;
