@@ -9,6 +9,8 @@ export class RandomTransformationService {
     constructor() {
         this.bracketRegexp = new RegExp(BRACKET_PATTERN);
         this.transform('r[string]'); // TODO remove example
+        this.transform('r[number]');
+        this.transform('r[boolean]');
     }
 
     transform(element: string): any {
@@ -32,6 +34,12 @@ export class RandomTransformationService {
         switch (element) {
             case 'string':
                 random = faker.random.word();
+                break;
+            case 'number':
+                random = faker.random.number();
+                break;
+            case 'boolean':
+                random = faker.random.boolean();
                 break;
         }
         return random;
