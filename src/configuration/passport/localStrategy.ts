@@ -1,7 +1,7 @@
 import passport from 'passport';
 import local from 'passport-local';
-import IDataUser from '../interfaces/IDataUser';
-import { User } from '../models/index';
+import IDataUser from '../../interfaces/IDataUser';
+import { User } from '../../models/index';
 const bcrypt = require('bcrypt');
 const LocalStrategy = local.Strategy;
 
@@ -11,7 +11,7 @@ passport.use(new LocalStrategy({
 },
     (username: string, password: string, done: any) => {
         User.findOne({ username })
-            .then((foundUser: any) => {
+            .then((foundUser: IDataUser) => {
                 if (!foundUser) {
                     done(null, false, { message: 'Incorrect username' });
                     return;

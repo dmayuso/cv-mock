@@ -1,5 +1,5 @@
 import passport from 'passport';
-import { User } from '../models/index';
+import { User } from '../../models/index';
 
 passport.serializeUser((loggedInUser: any, cb) => {
     cb(null, loggedInUser._id);
